@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import GameCard from '../components/GameCard';
+import { slideLeft } from '../components/StyleHelpers';
+
 
 const Dashboard = styled.div`
   position: relative;
-  height: 100%;
+  display: flex;
   width: 100%;
 `;
-const Games = styled.div`
-  position: absolute;
-  height: calc(100% - 3px);
-  display: inline-flex;
-  border: 1px solid white;
-  justify-content: center;
-  flex-wrap: wrap;
-  left: 0;
-  right: 200px;
-  padding: 0 15px;
-`;
 const Scores = styled.div`
-  position: absolute;
-  height: calc(100% - 3px);  
+  width: 200px;
+  position: relative;
   display: inline-block;
-  border: 1px solid white;
-  left: 0;
-  right: 0;
+  background: slategrey;
+  border: 1px solid #bbb;
+  animation: ${slideLeft} .5s 1;
+`;
+const Games = styled.div`
+  position: relative;
+  padding: 10px 0 40px;
+  display: inline;
+  flex-direction: row;
+  flex: 8 3;
+  border: 1px solid #bbb;
 `;
 
 
@@ -58,17 +57,27 @@ class HomePage extends Component {
         link: 'www.franks-game-room.com/snake',
         imgUrl: 'this.image.com'
       },
+      {
+        name: 'Snake!',
+        link: 'www.franks-game-room.com/snake',
+        imgUrl: 'this.image.com'
+      },
+      {
+        name: 'Snake!',
+        link: 'www.franks-game-room.com/snake',
+        imgUrl: 'this.image.com'
+      },
     ]
     return (
       <Dashboard>
+        <Scores>
+          Scores Go Here
+        </Scores>
         <Games>
           {games.map(({ name, link, imgUrl }) => 
             <GameCard name={name} link={link} imgUrl={imgUrl} />
           )}
         </Games>
-        <Scores>
-          Scores Go Here
-        </Scores>
       </Dashboard>
     )
   }

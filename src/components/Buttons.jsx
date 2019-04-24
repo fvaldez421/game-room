@@ -6,13 +6,14 @@ export const PrimaryButton = styled.button`
   font-weight: 600;
   float: ${float};
   margin: ${margin};
-  border: none;
+  border: 1px solid;
   border-radius: 10px;
   padding: ${({ padding='8px 12px' }) => padding};
-  color: ${({ primary }) => primary ? 'white' : 'green'};
-  background-color: ${({ primary }) => primary ? '#91B54D' : 'lightgrey' };
+  color: ${({ primary }) => primary ? '#005795' : '#fff'};
+  border-color: ${({ primary }) => primary ? '#005795' : '#555'};
+  background-color: ${({ primary }) => primary ? '#fff' : '#ddd' };
   &:hover {
-    background-color: ${({ primary }) => primary ? 'green' : 'darkgrey'};
+    background-color: ${({ primary }) => primary ? '#bbb' : '#eee'};
     cursor: pointer;
   }
   &:focus {

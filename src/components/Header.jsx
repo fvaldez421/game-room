@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { PrimaryButton } from './Buttons';
 
+
 const HeaderWrap = styled.div`
   z-index: 10;
   position: absolute;
@@ -10,6 +11,9 @@ const HeaderWrap = styled.div`
   left: 0;
   right: 0;
   height: 60px;
+  border-bottom: 1px solid #005795;
+  background-color: #fff;
+  box-shadow: 0 2px 7px #aaa;
 `;
 
 const HeaderContent = styled.div`
@@ -17,12 +21,11 @@ const HeaderContent = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
-  background-color: #044368;
   > button {
     right: 0;
   }
   > h2 {
-    color: #fff;
+    color: #000;
     margin-left: 20px;
   }
 `;

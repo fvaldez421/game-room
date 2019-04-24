@@ -15,7 +15,6 @@ const AppContainer = styled.div`
 
 const AppContent = styled.div`
   position: absolute;
-  background-color: #000;
   top: 0;
   bottom: 0;
   right: 0;
