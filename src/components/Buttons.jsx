@@ -4,11 +4,12 @@ import { position, margin, float } from './StyleHelpers';
 export const PrimaryButton = styled.button`
   position: ${position};
   font-weight: 600;
+  font-size: 13px;
   float: ${float};
   margin: ${margin};
   border: 1px solid;
   border-radius: 10px;
-  padding: ${({ padding='8px 12px' }) => padding};
+  padding: ${({ padding='6px 12px' }) => padding};
   color: ${({ primary }) => primary ? '#005795' : '#fff'};
   border-color: ${({ primary }) => primary ? '#005795' : '#555'};
   background-color: ${({ primary }) => primary ? '#fff' : '#ddd' };

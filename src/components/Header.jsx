@@ -6,7 +6,7 @@ import { PrimaryButton } from './Buttons';
 
 const HeaderWrap = styled.div`
   z-index: 10;
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;

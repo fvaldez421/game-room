@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import GameCard from '../components/GameCard';
 import { slideLeft } from '../components/StyleHelpers';
-
+import snakeImg from '../assets/snake.JPG';
 
 const Dashboard = styled.div`
   position: relative;
@@ -38,35 +38,49 @@ class HomePage extends Component {
   render() {
     const games = [
       {
+        id: '886453543453345374754876',
         name: 'Snake!',
+        desc: "A classic game of Snake! Harness your skills to reach the highest level and teach your friends who's boss. I like tacos with salsa and guacamole but no onions please.",
+        link: 'https://fvaldez421.github.io/SnakeGame/',
+        gitHub: 'https://github.com/fvaldez421/SnakeGame',
+        imgUrl: snakeImg
+      },
+      {
+        id: '886453543453345374dshfdsh76',
+        name: 'Snake!',
+        desc: "A classic game of Snake! Harness your skills to reach the highest level and teach your friends who's boss",
         link: 'www.franks-game-room.com/snake',
         imgUrl: 'this.image.com'
       },
       {
+        id: '88645354hfdgndfn',
         name: 'Snake!',
+        desc: "A classic game of Snake! Harness your skills to reach the highest level and teach your friends who's boss",
         link: 'www.franks-game-room.com/snake',
         imgUrl: 'this.image.com'
       },
       {
+        id: '88645354sfdhbrbrt54876',
         name: 'Snake!',
+        desc: "A classic game of Snake! Harness your skills to reach the highest level and teach your friends who's boss",
         link: 'www.franks-game-room.com/snake',
         imgUrl: 'this.image.com'
       },
       {
+        id: '883453fjgjtejtr5374754876',
         name: 'Snake!',
+        desc: "A classic game of Snake! Harness your skills to reach the highest level and teach your friends who's boss",
         link: 'www.franks-game-room.com/snake',
         imgUrl: 'this.image.com'
       },
-      {
+            {
+        id: '886sjhjsrjt43453srhstrt45374754876',
         name: 'Snake!',
+        desc: "A classic game of Snake! Harness your skills to reach the highest level and teach your friends who's boss",
         link: 'www.franks-game-room.com/snake',
         imgUrl: 'this.image.com'
       },
-      {
-        name: 'Snake!',
-        link: 'www.franks-game-room.com/snake',
-        imgUrl: 'this.image.com'
-      },
+      
     ]
     return (
       <Dashboard>
@@ -74,8 +88,8 @@ class HomePage extends Component {
           Scores Go Here
         </Scores>
         <Games>
-          {games.map(({ name, link, imgUrl }) => 
-            <GameCard name={name} link={link} imgUrl={imgUrl} />
+          {games.map(game => 
+            <GameCard key={game.id} {...game} />
           )}
         </Games>
       </Dashboard>
