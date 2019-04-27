@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Consumer } from '../App';
+
 import GameCard from '../components/GameCard';
-import { slideLeft } from '../components/StyleHelpers';
+import { growX } from '../components/StyleHelpers';
 import snakeImg from '../assets/snake.JPG';
+import memTiles from '../assets/memtiles.JPG';
 
 const Dashboard = styled.div`
   position: relative;
   display: flex;
   width: 100%;
 `;
-const Scores = styled.div`
-  width: 200px;
+const ScoresContainer = styled.div`
+  width: 270px;
+  padding: 0 15px;
+  height: calc(100vh - 62px);
   position: relative;
   display: inline-block;
   background: slategrey;
   border: 1px solid #bbb;
-  animation: ${slideLeft} .5s 1;
+  animation: ${growX(270)} .5s 1;
+  > h3 {
+    width: 100%;
+    margin: 10px 0;
+  }
 `;
 const Games = styled.div`
   position: relative;
@@ -24,6 +33,9 @@ const Games = styled.div`
   flex-direction: row;
   flex: 8 3;
   border: 1px solid #bbb;
+`;
+const ScoresWrap = styled.div`
+  width: 100%;
 `;
 
 
@@ -34,8 +46,15 @@ class HomePage extends Component {
       stuff: ''
     }
   }
-  
   render() {
+
+    // const { snakeScore="90" } = this.props;
+    // const scores = [
+    //   {
+    //     name: 'Snake!',
+    //     score: snakeScore
+    //   }
+    // ];
     const games = [
       {
         id: '886453543453345374754876',
@@ -47,52 +66,32 @@ class HomePage extends Component {
       },
       {
         id: '886453543453345374dshfdsh76',
-        name: 'Snake!',
+        name: 'Memory Tiles: The Office Edition',
         desc: "A classic game of Snake! Harness your skills to reach the highest level and teach your friends who's boss",
-        link: 'www.franks-game-room.com/snake',
-        imgUrl: 'this.image.com'
+        link: 'https://fvaldez421.github.io/ReactGame/',
+        gitHub: 'https://github.com/fvaldez421/GuessingGame-React',
+        imgUrl: memTiles
       },
-      {
-        id: '88645354hfdgndfn',
-        name: 'Snake!',
-        desc: "A classic game of Snake! Harness your skills to reach the highest level and teach your friends who's boss",
-        link: 'www.franks-game-room.com/snake',
-        imgUrl: 'this.image.com'
-      },
-      {
-        id: '88645354sfdhbrbrt54876',
-        name: 'Snake!',
-        desc: "A classic game of Snake! Harness your skills to reach the highest level and teach your friends who's boss",
-        link: 'www.franks-game-room.com/snake',
-        imgUrl: 'this.image.com'
-      },
-      {
-        id: '883453fjgjtejtr5374754876',
-        name: 'Snake!',
-        desc: "A classic game of Snake! Harness your skills to reach the highest level and teach your friends who's boss",
-        link: 'www.franks-game-room.com/snake',
-        imgUrl: 'this.image.com'
-      },
-            {
-        id: '886sjhjsrjt43453srhstrt45374754876',
-        name: 'Snake!',
-        desc: "A classic game of Snake! Harness your skills to reach the highest level and teach your friends who's boss",
-        link: 'www.franks-game-room.com/snake',
-        imgUrl: 'this.image.com'
-      },
-      
-    ]
+    ];
+
     return (
-      <Dashboard>
-        <Scores>
-          Scores Go Here
-        </Scores>
-        <Games>
-          {games.map(game => 
-            <GameCard key={game.id} {...game} />
-          )}
-        </Games>
-      </Dashboard>
+      <Consumer>
+        {({ user }) =>
+          <Dashboard>
+            <ScoresContainer>
+              <h3>Welcome {user.username}!</h3>
+              <ScoresWrap>
+
+              </ScoresWrap>
+            </ScoresContainer>
+            <Games>
+              {games.map(game =>
+                <GameCard key={game.id} {...game} />
+              )}
+            </Games>
+          </Dashboard>
+        }
+      </Consumer>
     )
   }
 }

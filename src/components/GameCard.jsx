@@ -17,6 +17,7 @@ const CardImg = styled.img`
   height: 100px;
   width: 100px;
   border: 1px solid #aaa;
+  object-fit: contain;
 `;
 const GameButton = styled(PrimaryButton)`
   margin-right: 15px;

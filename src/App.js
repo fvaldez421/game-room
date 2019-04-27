@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, createContext } from 'react';
 import styled from 'styled-components';
 
 import Header from './components/Header';
 import Routes from './Routes';
-// import { login } from './utils/api';
+import { login } from './utils/api';
 import './App.css';
 
 
@@ -22,18 +22,40 @@ const AppContent = styled.div`
   padding-top: 60px;
 `;
 
+export const AppContext = createContext({ user: {}, loggedIn: false });
+
+export const { Provider, Consumer } = AppContext;
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loggedIn: false,
+      user: {},
+    }
+  };
+
+  async componentDidMount() {
+    const user = await login();
+    setTimeout(() => {
+      this.setState({ user, loggedIn: !!user });
+    }, 500);
+  }
+  
   render() {
+    const { user, loggedIn } = this.state;
     return (
       <AppContainer>
-        <Header />
-        <AppContent>
-          <Routes />
-        </AppContent>
+        <Provider value={{ user, loggedIn }}>
+          <Header loggedIn={this.state.loggedIn} loginCB={() => console.log('login')} logoutCB={() => console.log('logout')} />
+          <AppContent>
+            <Routes />
+          </AppContent>
+        </Provider>
       </AppContainer>
     );
   }
 }
+
 
 export default App;

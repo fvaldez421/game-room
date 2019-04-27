@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import HomePage from './pages/Home';
 
-const Routes = () => (
+const Routes = props => (
   <Router>
     <Route exact to='/' component={HomePage} />
     {/* <Route exact to='/' component={} /> */}

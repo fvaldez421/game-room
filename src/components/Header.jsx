@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { PrimaryButton } from './Buttons';
 
 
-const HeaderWrap = styled.div`
+const HeaderContainer = styled.div`
   z-index: 10;
   position: sticky;
   top: 0;
@@ -13,10 +13,10 @@ const HeaderWrap = styled.div`
   height: 60px;
   border-bottom: 1px solid #005795;
   background-color: #fff;
-  box-shadow: 0 2px 7px #aaa;
+  box-shadow: 0 2px 7px #00000047;
 `;
 
-const HeaderContent = styled.div`
+const HeaderWrap = styled.div`
   align-items: center;
   display: flex;
   height: 100%;
@@ -31,23 +31,22 @@ const HeaderContent = styled.div`
 `;
 
 
-const Header = ({ loggedIn, loginCB, logoutCB }) => {
-  return (
+const Header = ({ loggedIn, loginCB, logoutCB }) => (
+  <HeaderContainer>
     <HeaderWrap>
-      <HeaderContent>
-        <h2>Welcome to Game Room!</h2>
-        <PrimaryButton
-          primary
-          margin='0 10px 0 0'
-          position='absolute'
-          onClick={loggedIn ? logoutCB : loginCB}
-        >
-          {loggedIn ? 'Logout' : 'Login'}
-        </PrimaryButton>
+      <h2>Welcome to Game Room!</h2>
+      <PrimaryButton
+        primary
+        margin='0 10px 0 0'
+        position='absolute'
+        onClick={loggedIn ? logoutCB : loginCB}
+      >
+        {loggedIn ? 'Logout' : 'Login'}
+      </PrimaryButton>
 
-      </HeaderContent>
     </HeaderWrap>
-  )
-}
+  </HeaderContainer>
+);
+
 
 export default Header;
