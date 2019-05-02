@@ -2,30 +2,18 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Consumer } from '../App';
 
+import ScoreBar from '../components/ScoreBar';
 import GameCard from '../components/GameCard';
-import { growX } from '../components/StyleHelpers';
 import snakeImg from '../assets/snake.JPG';
 import memTiles from '../assets/memtiles.JPG';
 
 const Dashboard = styled.div`
   position: relative;
+  overflow: hidden;
   display: flex;
   width: 100%;
 `;
-const ScoresContainer = styled.div`
-  width: 270px;
-  padding: 0 15px;
-  height: calc(100vh - 62px);
-  position: relative;
-  display: inline-block;
-  background: slategrey;
-  border: 1px solid #bbb;
-  animation: ${growX(270)} .5s 1;
-  > h3 {
-    width: 100%;
-    margin: 10px 0;
-  }
-`;
+
 const Games = styled.div`
   position: relative;
   padding: 10px 0 40px;
@@ -33,9 +21,6 @@ const Games = styled.div`
   flex-direction: row;
   flex: 8 3;
   border: 1px solid #bbb;
-`;
-const ScoresWrap = styled.div`
-  width: 100%;
 `;
 
 
@@ -78,17 +63,12 @@ class HomePage extends Component {
       <Consumer>
         {({ user }) =>
           <Dashboard>
-            <ScoresContainer>
-              <h3>Welcome {user.username}!</h3>
-              <ScoresWrap>
-
-              </ScoresWrap>
-            </ScoresContainer>
             <Games>
               {games.map(game =>
                 <GameCard key={game.id} {...game} />
               )}
             </Games>
+            <ScoreBar user={user} />
           </Dashboard>
         }
       </Consumer>
