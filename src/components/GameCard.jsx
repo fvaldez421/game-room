@@ -8,7 +8,7 @@ const CardContainer = styled.div`
   flex-direction: row;
   align-items: center;
   background-color: #fff;
-  height: 120px;
+  min-height: 120px;
   min-width: 300px;
   margin: 0 35px;
   border-bottom: 1px solid #aaa;
@@ -26,16 +26,16 @@ const GameButton = styled(PrimaryButton)`
 `;
 const CardText = styled.div`
   position: relative;
-  padding: 0 20px;
-  height: 102px;
+  padding: 20px;
+  min-height: 102px;
   flex: 8 5;
   > h4 {
-    margin: 0 0 10px;
+    margin: 0 0 5px;
+    line-height: 20px;
   }
-  >p {
-    margin: 0 0 10px;
+  > p {
+    margin: 0 0 15px;
     font-size: 12px;
-    min-height: 26px;
   }
   .gameLink {s
     background-color: #2862a7;
