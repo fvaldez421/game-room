@@ -8,6 +8,8 @@ import './App.css';
 
 
 const AppContainer = styled.div`
+  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Cairo', sans-serif;
   position: relative;
   height: 100vh;
   width: 100%;
